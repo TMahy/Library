@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="styles.css">
+    <title>Library</title>
+</head>
+<body>
+    <div id="site-header">
+        <h1>Library</h1>
+    </div>
+    <div id="body-text">
+    <h1>Your Library</h1>
+    <h2>Track books you've read.<br>
+    Save those you want to.<br>
+    Tell your friends what you think</h2>
+    <button id='btn-add-book' class='btn' onclick="openForm()">Add book</button>
+    <div id="form-container">
+         <form id='form-book' action="" method="post">
+            <h1>New Book</h1>
+            <label for="title">Title
+                <input type="text" placeholder="Enter book title" name='title' required="required">
+            </label>
+            <label for="author">Author
+                <input type="text" placeholder="Enter book author" name='author' required="required">
+            </label>
+            <label for="pages">No. of pages
+                <input type="number" placeholder="Enter the number of pages" name='pages' required="required">
+            </label>
+            <p>Have you read it yet?</p>
+            <label for="read-false">No
+                <input type="radio" name='read' value="false" required="required">
+            </label>
+            <label for="read-true">Yes
+                <input type="radio" name='read'value='true'>
+            </label>
+            <button type="submit" id="submit" class="btn">Finish</button>
+            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+         </form>  
+    </div>
+    </div>
+    <div id="books-section">
+        <h1>Books</h1>
+        <div id="books-container">
+
+        </div>
+    </div>
+</body>
+<script src="index.js"></script>
+</html>
