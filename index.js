@@ -78,13 +78,13 @@ function displayLibrary(){
 })}
 
 function openForm() {
-    document.getElementById("form-container").style.display = "block";
+    document.getElementById("form-container").style.display = "inline";
     document.getElementById('btn-add-book').style.display = 'none';
 }
       
 function closeForm() {
         document.getElementById("form-container").style.display = "none";
-        document.getElementById('btn-add-book').style.display = 'block';
+        document.getElementById('btn-add-book').style.display = 'inline';
 }
 
 addBookToLibrary('Book1', 'Author1', 100, true);

@@ -1,3 +1,18 @@
 #form-container{
     display: none;
 }
+
+*{
+    font-family: sans-serif;
+}
+
+#site-header{
+    color: rgb(160,160,160);
+}
+
+#body-text{
+    position: relative;
+    margin: 0 auto;
+    text-align: center;
+}
+
