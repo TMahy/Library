@@ -91,5 +91,9 @@ addBookToLibrary('Book1', 'Author1', 100, true);
 addBookToLibrary('Book2', 'Author2', 100, true);
 addBookToLibrary('Book3', 'Author3', 100, false);
 addBookToLibrary('Book4', 'Author4', 100, false);
+addBookToLibrary('Book1', 'Author1', 100, true);
+addBookToLibrary('Book2', 'Author2', 100, true);
+addBookToLibrary('Book3', 'Author3', 100, false);
+addBookToLibrary('Book4', 'Author4', 100, false);
 displayLibrary()
 

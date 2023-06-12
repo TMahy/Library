@@ -1,9 +1,6 @@
-#form-container{
-    display: none;
-}
-
 *{
     font-family: sans-serif;
+    border: 1px solid black;
 }
 
 #site-header{
@@ -15,4 +12,29 @@
     margin: 0 auto;
     text-align: center;
 }
+
+#form-container{
+    display: none;
+}
+
+#books-section{
+    position: relative;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#books-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-gap: 4px;
+    justify-items: center;
+}
+
+.book{
+    width: 100px;
+    height: 20vh;
+    text-align: center;
+    background-color: bisque;
+}
+
 
