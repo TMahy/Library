@@ -21,15 +21,12 @@
     <div id="form-container">
          <form id='form-book' action="" method="post">
             <h1>New Book</h1>
-            <label for="title">Title
-                <input type="text" placeholder="Enter book title" name='title' required="required">
-            </label>
-            <label for="author">Author
-                <input type="text" placeholder="Enter book author" name='author' required="required">
-            </label>
-            <label for="pages">No. of pages
-                <input type="number" placeholder="Enter the number of pages" name='pages' required="required">
-            </label>
+            <input type="text" placeholder="Title" name='title' required="required">
+            <br>
+            <input type="text" placeholder="Author" name='author' required="required">
+            <br>
+            <input type="number" placeholder="Number of pages" name='pages' required="required">
+            <br>
             <p>Have you read it yet?</p>
             <label for="read-false">No
                 <input type="radio" name='read' value="false" required="required">
@@ -37,6 +34,7 @@
             <label for="read-true">Yes
                 <input type="radio" name='read'value='true'>
             </label>
+            <br>
             <button type="submit" id="submit" class="btn">Finish</button>
             <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
          </form>  
