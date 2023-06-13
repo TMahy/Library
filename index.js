@@ -59,12 +59,23 @@ function displayLibrary(){
     }
     myLibrary.forEach(book => {
         let bookDiv = document.createElement('div');
+        let titleDiv = document.createElement('div');
+        let authorDiv = document.createElement('div');
+        let pagesDiv = document.createElement('div');
         let btnRead = document.createElement('button');
         let btnRemove = document.createElement('button');
 
         bookDiv.setAttribute('class', 'book');
-        // bookDiv.textContent = book.info();
         bookDiv.dataset.index = myLibrary.indexOf(book);
+
+        titleDiv.setAttribute('class', 'book-title');
+        titleDiv.textContent = book.title;
+
+        authorDiv.setAttribute('class', 'book-author');
+        authorDiv.textContent = book.author;
+
+        pagesDiv.setAttribute('class', 'book-pages');
+        pagesDiv.textContent = book.pages;
 
         btnRead.setAttribute('class', 'btn btn-read');
         btnRead.textContent = book.read;
@@ -72,6 +83,9 @@ function displayLibrary(){
         btnRemove.setAttribute('class', 'btn btn-remove');
         btnRemove.textContent = 'X';
 
+        bookDiv.appendChild(titleDiv);
+        bookDiv.appendChild(authorDiv);
+        bookDiv.appendChild(pagesDiv);
         bookDiv.appendChild(btnRead);
         bookDiv.appendChild(btnRemove);
         booksContainer.appendChild(bookDiv);
@@ -87,13 +101,11 @@ function closeForm() {
         document.getElementById('btn-add-book').style.display = 'inline';
 }
 
-addBookToLibrary('Book1', 'Author1', 100, true);
-addBookToLibrary('Book2', 'Author2', 100, true);
-addBookToLibrary('Book3', 'Author3', 100, false);
-addBookToLibrary('Book4', 'Author4', 100, false);
-addBookToLibrary('Book1', 'Author1', 100, true);
-addBookToLibrary('Book2', 'Author2', 100, true);
-addBookToLibrary('Book3', 'Author3', 100, false);
-addBookToLibrary('Book4', 'Author4', 100, false);
+addBookToLibrary('Book 1', 'Author1', 100, true);
+addBookToLibrary('Book 2', 'Author2', 200, true);
+addBookToLibrary('A third book', 'Author Third', 300, false);
+addBookToLibrary('Book: Fourth time', 'Fourth Author', 400, false);
+addBookToLibrary('Book: Five times a charm', 'Fourth Author', 500, true);
+
 displayLibrary()
 
