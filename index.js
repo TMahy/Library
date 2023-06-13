@@ -58,7 +58,7 @@ function displayLibrary(){
         authorDiv.textContent = book.author;
 
         pagesDiv.setAttribute('class', 'book-pages');
-        pagesDiv.textContent = book.pages;
+        pagesDiv.textContent = `${book.pages} pages`;
 
         btnRead.setAttribute('class', 'btn btn-read');
         if(book.read){
