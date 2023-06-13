@@ -1,6 +1,6 @@
 *{
     font-family: sans-serif;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
 #site-header{
@@ -20,21 +20,40 @@
 #books-section{
     position: relative;
     margin: 0 auto;
+    width: 70vw;
+}
+
+#books-header{
     text-align: center;
 }
 
 #books-container{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    grid-gap: 4px;
+    grid-gap: 10px;
     justify-items: center;
 }
 
 .book{
+    position: relative;
     width: 100px;
-    height: 20vh;
-    text-align: center;
-    background-color: bisque;
+    height: 180px;
+    border-radius: 10px;
+    background: #F33139;
+    background-image: linear-gradient(to right,#D11F2F 24px, #ba0716 25px, transparent 25px);  
+} */
+
+.btn-read, .btn-remove{
+    position:absolute; 
+    top:0; 
+    z-index: 2;
 }
 
+.btn-read{
+    left: 0;
+}
+
+.btn-remove{
+    right: 0;
+}
 

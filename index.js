@@ -63,7 +63,7 @@ function displayLibrary(){
         let btnRemove = document.createElement('button');
 
         bookDiv.setAttribute('class', 'book');
-        bookDiv.textContent = book.info();
+        // bookDiv.textContent = book.info();
         bookDiv.dataset.index = myLibrary.indexOf(book);
 
         btnRead.setAttribute('class', 'btn btn-read');
