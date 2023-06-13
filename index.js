@@ -20,8 +20,7 @@ formBook.addEventListener('submit', (e) => {
 booksContainer.addEventListener('click', (e)=>{
     if(e.target.classList.contains('btn-read')){
         console.log(`read: ${myLibrary[e.target.parentElement.dataset.index].title}`)
-        e.target.textContent = myLibrary[e.target.parentElement.dataset.index].toggleRead()
-
+        e.target.innerHTML.replace(myLibrary[e.target.parentElement.dataset.index].toggleRead() ? `<i class="fa-solid fa-circle-check"></i>` : `<i class="fa-solid fa-circle-xmark"></i>`);
     }
 
     if(e.target.classList.contains('btn-remove')){
@@ -42,8 +41,7 @@ function Book(title, author, pages, read){
     }
     this.toggleRead = function(){
         read = read ? false : true;
-        console.log(read)
-        return read
+        return read;
     }
 }
 
@@ -78,10 +76,10 @@ function displayLibrary(){
         pagesDiv.textContent = book.pages;
 
         btnRead.setAttribute('class', 'btn btn-read');
-        btnRead.textContent = book.read;
+        btnRead.innerHTML = book.read ? `<i class="fa-solid fa-circle-check"></i>` : `<i class="fa-solid fa-circle-xmark"></i>`;
         
         btnRemove.setAttribute('class', 'btn btn-remove');
-        btnRemove.textContent = 'X';
+        btnRemove.innerHTML = `<i class="fa-solid fa-trash"></i>`;
 
         bookDiv.appendChild(titleDiv);
         bookDiv.appendChild(authorDiv);
@@ -105,7 +103,7 @@ addBookToLibrary('Book 1', 'Author1', 100, true);
 addBookToLibrary('Book 2', 'Author2', 200, true);
 addBookToLibrary('A third book', 'Author Third', 300, false);
 addBookToLibrary('Book: Fourth time', 'Fourth Author', 400, false);
-addBookToLibrary('Book: Five times a charm', 'Fourth Author', 500, true);
+addBookToLibrary('Book: Five times a charm, Book: Five times a charm', 'Fourth Author', 500, true);
 
 displayLibrary()
 
