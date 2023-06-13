@@ -4,7 +4,6 @@ const myLibrary = [];
 const booksContainer = document.getElementById('books-container');
 const formBook = document.getElementById('form-book');
 
-
 formBook.addEventListener('submit', (e) => {
     e.preventDefault();
 
