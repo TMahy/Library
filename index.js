@@ -4,31 +4,31 @@ const myLibrary = [];
 const booksContainer = document.getElementById('books-container');
 const formBook = document.getElementById('form-book');
 
-formBook.addEventListener('submit', (e) => {
+const btnSubmit = document.getElementById('submit');
+
+btnSubmit.addEventListener('click', (e)=>{
     e.preventDefault();
 
-    let formData = new FormData(formBook);
-    let values = [...formData.entries()];
+    console.log(title, author, pages);
 
-    addBookToLibrary(...values.map(val => val[1]));
-    displayLibrary();
+    form.reset();
 
-    formBook.reset();
     closeForm();
 })
 
-// booksContainer.addEventListener('click', (e)=>{
-//     if(e.target.classList.contains('btn-read')){
-//         console.log(`read: ${myLibrary[e.target.parentElement.dataset.index].title}, ${myLibrary[e.target.parentElement.dataset.index].read}`)
-//         e.target.innerHTML.replace(myLibrary[e.target.parentElement.dataset.index].toggleRead() ? `<i class="fa-solid fa-circle-check"></i>` : `<i class="fa-solid fa-circle-xmark"></i>`);
-//         console.log(`${myLibrary[e.target.parentElement.dataset.index].read}`);
-//     }
+// formBook.addEventListener('submit', (e) => {
+//     e.preventDefault();
 
-//     if(e.target.classList.contains('btn-remove')){
-//         console.log(`remove: ${myLibrary[e.target.parentElement.dataset.index].title}`)
-//         myLibrary.splice(e.target.parentElement.dataset.index, 1);
-//         displayLibrary();
-//     }
+//     let formData = new FormData(formBook);
+//     let values = [...formData.entries()];
+
+//     console.log(formData.values(), values);
+
+//     // addBookToLibrary(...values.map(val => val[1]));
+//     // displayLibrary();
+
+//     formBook.reset();
+//     closeForm();
 // })
 
 
