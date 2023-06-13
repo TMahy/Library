@@ -4,36 +4,23 @@ const myLibrary = [];
 const booksContainer = document.getElementById('books-container');
 const formBook = document.getElementById('form-book');
 
-const btnSubmit = document.getElementById('submit');
 
-btnSubmit.addEventListener('click', (e)=>{
+formBook.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    console.log(title, author, pages);
+    let formData = new FormData(formBook);
+    let values = [...formData.entries()];
 
-    form.reset();
+    addBookToLibrary(...values.map(val => val[1]));
+    displayLibrary();
 
+    formBook.reset();
     closeForm();
 })
 
-// formBook.addEventListener('submit', (e) => {
-//     e.preventDefault();
-
-//     let formData = new FormData(formBook);
-//     let values = [...formData.entries()];
-
-//     console.log(formData.values(), values);
-
-//     // addBookToLibrary(...values.map(val => val[1]));
-//     // displayLibrary();
-
-//     formBook.reset();
-//     closeForm();
-// })
-
 
 class Book{
-    constructor(title, author, pages, read){
+    constructor(title, author, pages, read = false){
     this.title = title
     this.author = author
     this.pages = pages
@@ -41,11 +28,6 @@ class Book{
     this.info = function(){
         return `${title} by ${author}, ${pages} pages, ${read ? 'read' : 'not read yet'}`
     }
-    // this.toggleRead = function(){
-    //     read = read ? false : true;
-    //     console.log(read);
-    //     return read;
-    // }
 }}
 
 function addBookToLibrary(title, author, pages, read){
@@ -58,6 +40,7 @@ function displayLibrary(){
     while(booksContainer.firstChild){
         booksContainer.firstChild.remove();
     }
+
     myLibrary.forEach(book => {
         let bookDiv = document.createElement('div');
         let titleDiv = document.createElement('div');
@@ -86,7 +69,6 @@ function displayLibrary(){
             btnRead.innerHTML = `<i class="fa-solid fa-circle-xmark"></i>`;
             btnRead.style.color = '#f44336';
         }
-
         btnRead.addEventListener('click', ()=>{
             book.read = !book.read;
             displayLibrary();
@@ -109,19 +91,18 @@ function displayLibrary(){
 
 function openForm() {
     document.getElementById("form-container").style.display = "inline";
-    document.getElementById('btn-add-book').style.display = 'none';
 }
       
 function closeForm() {
         document.getElementById("form-container").style.display = "none";
-        document.getElementById('btn-add-book').style.display = 'inline';
 }
 
-addBookToLibrary('Book 1', 'Author1', 100, true);
-addBookToLibrary('Book 2', 'Author2', 200, true);
-addBookToLibrary('A third book', 'Author Third', 300, false);
-addBookToLibrary('Book: Fourth time', 'Fourth Author', 400, false);
-addBookToLibrary('Book: Five times a charm, Book: Five times a charm', 'Fourth Author', 500, true);
+
+addBookToLibrary('The Great Gatsby', 'F. Scott Fitzgerald', 208, true);
+addBookToLibrary('To Kill a Mockingbird', 'Harper Lee', 281, true);
+addBookToLibrary('The Catcher in the Rye', 'J. D. Salinger', 234, false);
+addBookToLibrary('Don Quixote', 'Miguel de Cervantes', 1072, false);
+addBookToLibrary('Mr. Tickle', 'Roger Hargreaves', 36, true);
 
 displayLibrary()
 
