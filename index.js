@@ -17,21 +17,23 @@ formBook.addEventListener('submit', (e) => {
     closeForm();
 })
 
-booksContainer.addEventListener('click', (e)=>{
-    if(e.target.classList.contains('btn-read')){
-        console.log(`read: ${myLibrary[e.target.parentElement.dataset.index].title}`)
-        e.target.innerHTML.replace(myLibrary[e.target.parentElement.dataset.index].toggleRead() ? `<i class="fa-solid fa-circle-check"></i>` : `<i class="fa-solid fa-circle-xmark"></i>`);
-    }
+// booksContainer.addEventListener('click', (e)=>{
+//     if(e.target.classList.contains('btn-read')){
+//         console.log(`read: ${myLibrary[e.target.parentElement.dataset.index].title}, ${myLibrary[e.target.parentElement.dataset.index].read}`)
+//         e.target.innerHTML.replace(myLibrary[e.target.parentElement.dataset.index].toggleRead() ? `<i class="fa-solid fa-circle-check"></i>` : `<i class="fa-solid fa-circle-xmark"></i>`);
+//         console.log(`${myLibrary[e.target.parentElement.dataset.index].read}`);
+//     }
 
-    if(e.target.classList.contains('btn-remove')){
-        console.log(`remove: ${myLibrary[e.target.parentElement.dataset.index].title}`)
-        myLibrary.splice(e.target.parentElement.dataset.index, 1);
-        displayLibrary()
-    }
-})
+//     if(e.target.classList.contains('btn-remove')){
+//         console.log(`remove: ${myLibrary[e.target.parentElement.dataset.index].title}`)
+//         myLibrary.splice(e.target.parentElement.dataset.index, 1);
+//         displayLibrary();
+//     }
+// })
 
 
-function Book(title, author, pages, read){
+class Book{
+    constructor(title, author, pages, read){
     this.title = title
     this.author = author
     this.pages = pages
@@ -39,11 +41,12 @@ function Book(title, author, pages, read){
     this.info = function(){
         return `${title} by ${author}, ${pages} pages, ${read ? 'read' : 'not read yet'}`
     }
-    this.toggleRead = function(){
-        read = read ? false : true;
-        return read;
-    }
-}
+    // this.toggleRead = function(){
+    //     read = read ? false : true;
+    //     console.log(read);
+    //     return read;
+    // }
+}}
 
 function addBookToLibrary(title, author, pages, read){
     let newBook = new Book(title, author, pages, read)
@@ -76,10 +79,25 @@ function displayLibrary(){
         pagesDiv.textContent = book.pages;
 
         btnRead.setAttribute('class', 'btn btn-read');
-        btnRead.innerHTML = book.read ? `<i class="fa-solid fa-circle-check"></i>` : `<i class="fa-solid fa-circle-xmark"></i>`;
+        if(book.read){
+            btnRead.innerHTML = `<i class="fa-solid fa-circle-check"></i>`;
+            btnRead.style.color = '#4CAF50';
+        }else if(!book.read){
+            btnRead.innerHTML = `<i class="fa-solid fa-circle-xmark"></i>`;
+            btnRead.style.color = '#f44336';
+        }
+
+        btnRead.addEventListener('click', ()=>{
+            book.read = !book.read;
+            displayLibrary();
+        })
         
         btnRemove.setAttribute('class', 'btn btn-remove');
         btnRemove.innerHTML = `<i class="fa-solid fa-trash"></i>`;
+        btnRemove.addEventListener('click', ()=>{
+            myLibrary.splice(myLibrary.indexOf(book), 1);
+            displayLibrary();
+        })
 
         bookDiv.appendChild(titleDiv);
         bookDiv.appendChild(authorDiv);
